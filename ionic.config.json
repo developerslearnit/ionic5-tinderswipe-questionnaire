@@ -1,5 +1,7 @@
 {
   "name": "iontinder",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -1,20 +1,40 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Swipe Questionnarie
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <div class="topSpace"></div>
+
+  <ion-card *ngFor="let question of questions; let index=index"
+  [style.z-index]="questions.length-index" 
+  [style.transform]="'scale(' + (20 - index) / 20 + ') translateY(-' + 20 * index + 'px)'"
+  [style.opacity]="(10 - index) / 10"
+  >
+    <ion-card-header>
+      <div class="progress">
+
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="inner-wrap">
+        <p>
+          Question {{question.id}} of {{questions.length}}
+        </p>
+        
+        <h2>
+          {{question.question}}
+        </h2>
+       
+
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+
 </ion-content>
